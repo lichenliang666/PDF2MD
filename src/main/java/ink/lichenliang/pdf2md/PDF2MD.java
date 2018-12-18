@@ -17,32 +17,7 @@ public class PDF2MD {
 
     public static void main(String[] args) throws IOException {
 
-        // 加载PDF文件
-        PDDocument document = PDDocument.load(new File("E:\\Work\\github\\PDF2MD\\src\\test\\resources\\test.pdf"));
-
-        PDFTextStripper stripper = new PDFTextStripper();
-        String text = stripper.getText(document);
-        System.out.println(text);
-
-        document.getDocumentCatalog();
-
-        PDDocumentCatalog pdDocumentCatalog = document.getDocumentCatalog();
-
-        // 获取大纲（书签），具体可参看 github 上的 pdfbox源码 org.apache.pdfbox.examples.pdmodel.PrintBookmarks
-        PDDocumentOutline outline = pdDocumentCatalog.getDocumentOutline();
-
-        PDResources pdResources = document.getPage(0).getResources();
-
-        COSDictionary cosDictionary = document.getPage(0).getCOSObject();
-
-        Iterator<PDStream> pdStreamIterator = document.getPage(0).getContentStreams();
-
-        while (pdStreamIterator.hasNext()){
-            PDStream pdStream = pdStreamIterator.next();
-            System.out.println(pdStream);
-        }
-
-        document.close();
+         
 
     }
 
